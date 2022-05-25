@@ -1,0 +1,56 @@
+name: CI
+
+# Workflow должен выполняться при добавлении изменений
+# или новом пул-реквесте в master
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  # Тесты должны выполняться при каждом запуске workflow
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: docker://postgres
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: user
+          POSTGRES_PASSWORD: hackme
+          POSTGRES_DB: analyzer
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: test
+        uses: docker://snakepacker/python:all
+        env:
+          CI_ANALYZER_PG_URL: postgresql://user:hackme@postgres/analyzer
+        with:
+          args: /bin/bash -c "pip install -U '.[dev]' && pylama && wait-for-port postgres:5432 && pytest -vv --cov=analyzer --cov-report=term-missing tests"
+
+# Сборка и загрузка Docker-образа с приложением
+  publish:
+    # Выполняется только если изменения попали в ветку master
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    # Требует, чтобы задача test была выполнена успешно
+    needs: test
+    steps:
+      - uses: actions/checkout@v2
+      - name: sdist
+        uses: docker://snakepacker/python:all
+        with:
+          args: make sdist
+
+      - name: build-push
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.REGISTRY_LOGIN }}
+          password: ${{ secrets.REGISTRY_TOKEN }}
+          repository: LushinEA/REST-API-service
+          target: api
+          tags: 0.0.1, latest
