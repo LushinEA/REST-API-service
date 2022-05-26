@@ -51,6 +51,6 @@ jobs:
         with:
           username: ${{ secrets.REGISTRY_LOGIN }}
           password: ${{ secrets.REGISTRY_TOKEN }}
-          repository: LushinEA/REST-API-service
+          repository: LushinEA/rest-api-service
           target: api
           tags: 0.0.1, latest

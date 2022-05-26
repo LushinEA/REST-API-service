@@ -7,8 +7,8 @@
 .. _вступительного испытания: https://disk.yandex.ru/i/dA9umaGbQdMNLw
 .. _Школу бэкенд-разработки Яндекса: https://yandex.ru/promo/academy/backend-school/
 
-.. image:: https://github.com/LushinEA/REST-API-service/workflows/CI/badge.svg?branch=master&event=push
-    :target: https://github.com/LushinEA/REST-API-service/actions?query=workflow%3ACI
+.. image:: https://github.com/LushinEA/rest-api-service/workflows/CI/badge.svg?branch=master&event=push
+    :target: https://github.com/LushinEA/rest-api-service/actions?query=workflow%3ACI
 
 Что внутри?
 ===========
@@ -26,7 +26,7 @@
 
     docker run -it \
         -e ANALYZER_PG_URL=postgresql://user:hackme@localhost/analyzer \
-        LushinEA/REST-API-service analyzer-db upgrade head
+        LushinEA/rest-api-service analyzer-db upgrade head
 
 Как запустить REST API сервис локально на порту 8081:
 
@@ -34,15 +34,15 @@
 
     docker run -it -p 8081:8081 \
         -e ANALYZER_PG_URL=postgresql://user:hackme@localhost/analyzer \
-        LushinEA/REST-API-service
+        LushinEA/rest-api-service
 
 Все доступные опции запуска любой команды можно получить с помощью
 аргумента :shell:`--help`:
 
 .. code-block:: shell
 
-    docker run LushinEA/REST-API-service analyzer-db --help
-    docker run LushinEA/REST-API-service analyzer-api --help
+    docker run LushinEA/rest-api-service analyzer-db --help
+    docker run LushinEA/rest-api-service analyzer-api --help
 
 Опции для запуска можно указывать как аргументами командной строки, так и
 переменными окружения с префиксом :shell:`ANALYZER` (например: вместо аргумента

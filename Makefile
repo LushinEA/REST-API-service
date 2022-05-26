@@ -1,4 +1,4 @@
-PROJECT_NAME ?= REST-API-service
+PROJECT_NAME ?= rest-api-service
 VERSION = $(shell python3 setup.py --version | tr '+' '-')
 PROJECT_NAMESPACE ?= LushinEA
 REGISTRY_IMAGE ?= $(PROJECT_NAMESPACE)/$(PROJECT_NAME)

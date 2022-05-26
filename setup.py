@@ -31,7 +31,7 @@ setup(
     license=module.__license__,
     description=module.__doc__,
     long_description=open('README.rst').read(),
-    url='https://github.com/LushinEA/REST-API-service',
+    url='https://github.com/LushinEA/rest-api-service',
     platforms='all',
     classifiers=[
         'Intended Audience :: Developers',
