@@ -40,10 +40,10 @@ setup(
         'Operating System :: POSIX',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: Implementation :: CPython'
     ],
-    python_requires='>=3.9',
+    python_requires='>=3.8',
     packages=find_packages(exclude=['tests']),
     install_requires=load_requirements('requirements.txt'),
     extras_require={'dev': load_requirements('requirements.dev.txt')},
