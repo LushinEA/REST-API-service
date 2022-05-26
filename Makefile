@@ -1,6 +1,6 @@
 PROJECT_NAME ?= rest-api-service
 VERSION = $(shell python3 setup.py --version | tr '+' '-')
-PROJECT_NAMESPACE ?= LushinEA
+PROJECT_NAMESPACE ?= lushin
 REGISTRY_IMAGE ?= $(PROJECT_NAMESPACE)/$(PROJECT_NAME)
 
 all:
