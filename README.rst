@@ -1,12 +1,6 @@
 .. role:: shell(code)
    :language: shell
 
-Приложение для `практического руководства`_ по разработке бэкенд-сервисов на Python (на основе `вступительного испытания`_ в `Школу бэкенд-разработки Яндекса`_ в 2019 году).
-
-.. _практического руководства: https://habr.com/ru/company/yandex/blog/499534/
-.. _вступительного испытания: https://disk.yandex.ru/i/dA9umaGbQdMNLw
-.. _Школу бэкенд-разработки Яндекса: https://yandex.ru/promo/academy/backend-school/
-
 .. image:: https://github.com/LushinEA/rest-api-service/workflows/CI/badge.svg?branch=master&event=push
     :target: https://github.com/LushinEA/rest-api-service/actions?query=workflow%3ACI
 
